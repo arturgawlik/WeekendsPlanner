@@ -3,7 +3,15 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  firebase: {
+    apiKey: "AIzaSyDnnx85CZT0Dz7AUHDVWrQDQmOj-f70OFA",
+    authDomain: "weekendsplanner-da696.firebaseapp.com",
+    databaseURL: "https://weekendsplanner-da696.firebaseio.com",
+    projectId: "weekendsplanner-da696",
+    storageBucket: "weekendsplanner-da696.appspot.com",
+    messagingSenderId: "797596047216"
+  }
 };
 
 /*
