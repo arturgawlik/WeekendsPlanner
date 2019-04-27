@@ -8,8 +8,8 @@ import { environment } from '../environments/environment';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ShellComponent } from './src/app/components/shell/shell.component';
-import { LoginComponent } from './src/app/components/login/login.component';
+import { ShellComponent } from './components/shell/shell.component';
+import { LoginComponent } from './components/login/login.component';
 
 
 @NgModule({
