@@ -30,4 +30,18 @@ export class AuthService {
     })
   }
 
+  doRegister(email: string, password: string) {
+    return new Promise<any>((resolve, reject) => {
+      firebase.auth().createUserWithEmailAndPassword(email, password)
+      .then(res => resolve(res), err => reject(err));
+    })
+  }
+
+  doLogin(email: string, password: string) {
+    return new Promise<any>((resolve, reject) => {
+      firebase.auth().signInWithEmailAndPassword(email, password)
+      .then(res => resolve(res), err => reject(err));
+    })
+  }
+
 }
