@@ -18,8 +18,12 @@ export class AuthGuard implements CanActivate {
     return this.userService.getCurrentUser()
       .then(usr => {
         if (usr) {
+          console.log('ret false');
           this.router.navigate(['/']);
           return false;
+        } else {
+          console.log('ret true');
+          return true;
         }
       })
       .catch(err => {

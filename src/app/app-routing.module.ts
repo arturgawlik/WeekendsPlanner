@@ -10,8 +10,7 @@ const routes: Routes = [
     path: '',
     component: ShellComponent, 
     children: [],
-    canActivate: [ShellGuard],
-    canActivateChild: [ShellGuard]
+    canActivate: [ShellGuard]
   },
   {
     path: 'login',

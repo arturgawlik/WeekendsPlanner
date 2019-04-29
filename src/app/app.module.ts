@@ -13,6 +13,9 @@ import { AuthService } from './services/auth/auth.service';
 import { AppComponent } from './app.component';
 import { ShellComponent } from './components/shell/shell.component';
 import { LoginComponent } from './components/login/login.component';
+import { UserService } from './services/user/user.service';
+import { AuthGuard } from './guards/auth/auth.guard';
+import { ShellGuard } from './guards/shell/shell.guard';
 
 
 
@@ -30,7 +33,10 @@ import { LoginComponent } from './components/login/login.component';
     AngularFireAuthModule
   ],
   providers: [
-    AuthService
+    AuthService,
+    UserService,
+    AuthGuard,
+    ShellGuard
   ],
   bootstrap: [AppComponent]
 })

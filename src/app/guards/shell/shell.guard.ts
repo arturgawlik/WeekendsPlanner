@@ -11,12 +11,14 @@ export class ShellGuard implements CanActivate {
   constructor(private userService: UserService, private router: Router) {
   }
   
-  canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): Promise<boolean > {
+  canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): Promise<boolean> {
     return this.userService.getCurrentUser()
       .then(usr => {
         if (usr) {
+          console.log('ret true');
           return true;
         } else {
+          console.log('ret false');
           this.router.navigate(['/login']);
           return false;
         }
