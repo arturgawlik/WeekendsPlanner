@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
@@ -34,7 +35,9 @@ import { HomeComponent } from './components/home/home.component';
     AngularFirestoreModule,
     AngularFireAuthModule,
     AppRoutingModule,
-    AlertModule.forRoot()
+    AlertModule.forRoot(),
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     AuthService,

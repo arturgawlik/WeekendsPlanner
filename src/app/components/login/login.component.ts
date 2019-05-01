@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth/auth.service';
+import { FormBuilder, FormGroup, AbstractControl } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -30,8 +31,20 @@ export class LoginComponent implements OnInit {
     ];
   loggingWithFacebook = false;
   loggingWithGoogle = false;
+  loggingWithEmailAndPass = false;
+  loggingWithEmailAndPassError = false;
 
-  constructor(private authService: AuthService) {
+  loginForm: FormGroup;
+
+  get loginEmail(): AbstractControl {
+    return this.loginForm.get('loginEmail');
+  }
+  get loginPassword(): AbstractControl {
+    return this.loginForm.get('loginPassword');
+  }
+
+  constructor(private authService: AuthService, private fb: FormBuilder) {
+    this.buildLoginForm();
   }
 
   ngOnInit() {
@@ -39,25 +52,53 @@ export class LoginComponent implements OnInit {
     document.getElementsByTagName('body')[0].style.backgroundImage = `url(${this.images[imageIndex]})`;
   }
 
+  private buildLoginForm() {
+    this.loginForm = this.fb.group({
+      loginEmail: [''],
+      loginPassword: ['']
+    });
+  }
+
+  private setAllLoggingFlagsAsFalse() {
+    this.loggingWithFacebook = false;
+    this.loggingWithGoogle = false;
+    this.loggingWithEmailAndPass = false;
+    this.loggingWithEmailAndPassError = false;
+  }
+
+  loginWithEmailAndPassword() {
+    if (this.loginForm.valid) {
+      this.authService.doLogin(this.loginEmail.value, this.loginPassword.value)
+      .catch(err => {
+        console.error(err);
+        this.setAllLoggingFlagsAsFalse();
+        this.loggingWithEmailAndPassError = true;
+      });
+      this.setAllLoggingFlagsAsFalse();
+      this.loggingWithEmailAndPass = true;
+    } else {
+      this.loginEmail.markAsTouched();
+      this.loginPassword.markAsTouched();
+    }
+  }
+
   loginWithGoogle() {
     this.authService.doLoginWithGoogle()
-    .catch(err => {
-      console.error(err);
-      this.loggingWithFacebook = false;
-      this.loggingWithGoogle = false;
-    });
-    this.loggingWithFacebook = false;
+      .catch(err => {
+        console.error(err);
+        this.setAllLoggingFlagsAsFalse();
+      });
+    this.setAllLoggingFlagsAsFalse();
     this.loggingWithGoogle = true;
   }
 
   loginWithFacebook() {
     this.authService.doFacebookLogin()
-    .catch(err => {
-      console.error(err);
-      this.loggingWithFacebook = false;
-      this.loggingWithGoogle = false;
-    });
-    this.loggingWithGoogle = false;
+      .catch(err => {
+        console.error(err);
+        this.setAllLoggingFlagsAsFalse();
+      });
+    this.setAllLoggingFlagsAsFalse();
     this.loggingWithFacebook = true;
   }
 

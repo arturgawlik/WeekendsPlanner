@@ -8,33 +8,43 @@
             Sign in or create new account.
           </h5>
         </div>
-        <!-- <div *ngFor="let alert of alerts">
-          <alert [type]="alert.type" [dismissOnTimeout]="alert.timeout">{{ alert.msg }}</alert>
-        </div> -->
         <alert *ngIf="loggingWithFacebook" type="info">
-          <div style="text-align: center;max-width:unset;"><strong>Heads up!</strong> You are logging with Facebook...</div>
+          <div style="text-align: center;max-width:unset;"><strong>Heads up!</strong> You are logging with Facebook...
+          </div>
         </alert>
         <alert *ngIf="loggingWithGoogle" type="info">
-            <div style="text-align: center;max-width:unset;"><strong>Heads up!</strong> You are logging with Google...</div>
+          <div style="text-align: center;max-width:unset;"><strong>Heads up!</strong> You are logging with Google...
+          </div>
+        </alert>
+        <alert *ngIf="loggingWithEmailAndPass" type="info">
+          <div style="text-align: center;max-width:unset;"><strong>Heads up!</strong> You are logging...
+          </div>
+        </alert>
+        <alert *ngIf="loggingWithEmailAndPassError" type="danger">
+            <div style="text-align: center;max-width:unset;"><strong>Oh snap!</strong> Wrong email or password.
+            </div>
           </alert>
         <hr>
-        <form>
+        <form [formGroup]="loginForm">
           <div class="form-group">
             <label for="inputEmail">Email address</label>
             <input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp"
-              placeholder="Enter email">
+              placeholder="Enter email" formControlName="loginEmail">
           </div>
           <div class="form-group">
             <label for="inputPassword">Password</label>
-            <input type="password" class="form-control" id="inputPassword" placeholder="Enter password">
+            <input type="password" class="form-control" id="inputPassword" placeholder="Enter password"
+              formControlName="loginPassword">
           </div>
-          <button type="button" class="btn btn-secondary btn-lg btn-block">Sign in</button>
+          <button type="button" class="btn btn-secondary btn-lg btn-block" (click)="loginWithEmailAndPassword();">Sign
+            in</button>
         </form>
         <hr>
         <div class="social-login" style="margin-top:15px;">
           <button class="btn btn-primary btn-block" type="button" (click)="loginWithFacebook()"><span><i
                 class="fab fa-facebook-f"></i> Sign in with Facebook</span> </button>
-          <button class="btn btn-danger btn-block" style="margin-top: 5px;" (click)="loginWithGoogle()" type="button"><span><i class="fab fa-google"></i>
+          <button class="btn btn-danger btn-block" style="margin-top: 5px;" (click)="loginWithGoogle()"
+            type="button"><span><i class="fab fa-google"></i>
               Sign in with Google</span> </button>
         </div>
         <hr>
