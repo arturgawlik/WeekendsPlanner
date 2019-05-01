@@ -16,7 +16,10 @@ export class AuthService {
       let provider = new auth.FacebookAuthProvider();
       this.afAuth.auth
       .signInWithPopup(provider)
-      .then(res => resolve(res), err => reject(err));
+      .then(res => {
+        this.router.navigate(['']);
+        resolve(res);
+      }, err => reject(err));
     });
   }
 
