@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/services/auth/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -28,11 +29,20 @@ export class LoginComponent implements OnInit {
       'https://images.pexels.com/photos/196665/pexels-photo-196665.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
     ];
 
-  constructor() { }
+  constructor(private authService: AuthService) {
+  }
 
   ngOnInit() {
     const imageIndex = Math.floor(Math.random() * (this.images.length - 1));
     document.getElementsByTagName('body')[0].style.backgroundImage = `url(${this.images[imageIndex]})`;
+  }
+
+  loginWithGoogle() {
+    this.authService.doLoginWithGoogle();
+  }
+
+  loginWithFacebook() {
+    this.authService.doFacebookLogin();
   }
 
 }

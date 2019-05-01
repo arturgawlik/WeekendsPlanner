@@ -1,31 +1,28 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree, Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import { UserService } from 'src/app/services/user/user.service';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ShellGuard implements CanActivate {
   
-  constructor(private userService: UserService, private router: Router) {
+  constructor(private router: Router, private afAuth: AngularFireAuth) {
   }
   
-  canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): Promise<boolean> {
-    return this.userService.getCurrentUser()
-      .then(usr => {
-        if (usr) {
-          console.log('ret true');
+  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> {
+    return this.afAuth.user.pipe(
+      map(res => {
+        if (res) {
           return true;
         } else {
-          console.log('ret false');
           this.router.navigate(['/login']);
           return false;
         }
       })
-      .catch(err => {
-        return false;
-      })
+    )
   }
   
 }
