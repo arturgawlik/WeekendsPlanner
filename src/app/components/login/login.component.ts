@@ -33,6 +33,11 @@ export class LoginComponent implements OnInit {
   loggingWithGoogle = false;
   loggingWithEmailAndPass = false;
   loggingWithEmailAndPassError = false;
+  registerSuccessCom = false;
+  registerErrorCom = false;
+  registerProcessingCom = false;
+
+  showSignUp = false;
 
   loginForm: FormGroup;
 
@@ -64,6 +69,9 @@ export class LoginComponent implements OnInit {
     this.loggingWithGoogle = false;
     this.loggingWithEmailAndPass = false;
     this.loggingWithEmailAndPassError = false;
+    this.registerSuccessCom = false;
+    this.registerErrorCom = false;
+    this.registerProcessingCom = false;
   }
 
   loginWithEmailAndPassword() {
@@ -100,6 +108,32 @@ export class LoginComponent implements OnInit {
       });
     this.setAllLoggingFlagsAsFalse();
     this.loggingWithFacebook = true;
+  }
+
+  signUp() {
+    this.setAllLoggingFlagsAsFalse();
+    this.showSignUp = true;
+  }
+
+  reset() {
+    this.setAllLoggingFlagsAsFalse();
+    this.showSignUp = false;
+  }
+
+  registerSuccess() {
+    this.setAllLoggingFlagsAsFalse();
+    this.registerSuccessCom = true;
+    this.showSignUp = false;
+  }
+
+  registerError() {
+    this.setAllLoggingFlagsAsFalse();
+    this.registerErrorCom = true;
+  }
+
+  registerStart() {
+    this.setAllLoggingFlagsAsFalse();
+    this.registerProcessingCom = true;
   }
 
 }

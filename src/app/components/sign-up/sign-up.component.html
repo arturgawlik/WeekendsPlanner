@@ -1,0 +1,54 @@
+<form [formGroup]="signUpForm">
+  <div class="form-group">
+    <label for="signupEmail">Email address</label>
+    <input type="email" class="form-control" id="signupEmail" aria-describedby="emailHelp" placeholder="Enter email"
+      formControlName="signupEmail" [class.is-valid]="signupEmail.valid && (signupEmail.touched || signupEmail.dirty)"
+      [class.is-invalid]="signupEmail.invalid && (signupEmail.touched || signupEmail.dirty)">
+    <div *ngIf="signupEmail.valid" class="valid-feedback">
+      Looks good!
+    </div>
+    <div *ngIf="signupEmail.errors?.required && (signupEmail.touched || signupEmail.dirty)" class="invalid-feedback">
+      Email is required!
+    </div>
+    <div *ngIf="signupEmail.errors?.email && (signupEmail.touched || signupEmail.dirty)" class="invalid-feedback">
+      It's not well formated email address!
+    </div>
+  </div>
+  <ng-container formGroupName="password">
+    <div class="form-group">
+      <label for="signupPassword">Password</label>
+      <input type="password" class="form-control" id="signupPassword" placeholder="Enter password"
+        formControlName="signupPassword"
+        [class.is-valid]="signupPassword.valid && (signupPassword.touched || signupPassword.dirty)"
+        [class.is-invalid]="signupPassword.invalid && (signupPassword.touched || signupPassword.dirty)">
+      <div *ngIf="signupPassword.valid" class="valid-feedback">
+        Looks good!
+      </div>
+      <div *ngIf="signupPassword.errors?.required && (signupPasswordRepeat.touched || signupPasswordRepeat.dirty)"
+        class="invalid-feedback">
+        Password is required!
+      </div>
+      <div *ngIf="signupPassword.errors?.minlength && (signupPasswordRepeat.touched || signupPasswordRepeat.dirty)"
+        class="invalid-feedback">
+        Password should be at least 6 characters!
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="signupPasswordRepeat">Repeat password</label>
+      <input type="password" class="form-control" id="signupPasswordRepeat" placeholder="Repeat password"
+        formControlName="signupPasswordRepeat"
+        [class.is-valid]="password.valid && signupPasswordRepeat.valid && (signupPasswordRepeat.touched || signupPasswordRepeat.dirty)"
+        [class.is-invalid]="(password.invalid || signupPasswordRepeat.invalid) && (signupPasswordRepeat.touched || signupPasswordRepeat.dirty)">
+      <div *ngIf="signupPasswordRepeat.valid" class="valid-feedback">
+        Looks good!
+      </div>
+      <div *ngIf="password.errors?.identityPassword && (password.touched || password.dirty)" class="invalid-feedback">
+        Passwords must be same!
+      </div>
+    </div>
+  </ng-container>
+  <button type="button" class="btn btn-secondary btn-lg btn-block" (click)="signUp()">Sign
+    up</button>
+</form>
+<hr>
+<button type="button" class="btn btn-light btn-lg btn-block" (click)="goBack()">Go back</button>

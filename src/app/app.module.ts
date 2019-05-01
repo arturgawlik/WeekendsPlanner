@@ -19,6 +19,7 @@ import { LoginComponent } from './components/login/login.component';
 import { AuthGuard } from './guards/auth/auth.guard';
 import { ShellGuard } from './guards/shell/shell.guard';
 import { HomeComponent } from './components/home/home.component';
+import { SignUpComponent } from './components/sign-up/sign-up.component';
 
 
 
@@ -27,7 +28,8 @@ import { HomeComponent } from './components/home/home.component';
     AppComponent,
     ShellComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    SignUpComponent
   ],
   imports: [
     BrowserModule,
