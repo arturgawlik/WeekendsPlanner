@@ -28,6 +28,8 @@ export class LoginComponent implements OnInit {
       'https://images.pexels.com/photos/831243/pexels-photo-831243.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
       'https://images.pexels.com/photos/196665/pexels-photo-196665.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
     ];
+  loggingWithFacebook = false;
+  loggingWithGoogle = false;
 
   constructor(private authService: AuthService) {
   }
@@ -38,11 +40,25 @@ export class LoginComponent implements OnInit {
   }
 
   loginWithGoogle() {
-    this.authService.doLoginWithGoogle();
+    this.authService.doLoginWithGoogle()
+    .catch(err => {
+      console.error(err);
+      this.loggingWithFacebook = false;
+      this.loggingWithGoogle = false;
+    });
+    this.loggingWithFacebook = false;
+    this.loggingWithGoogle = true;
   }
 
   loginWithFacebook() {
-    this.authService.doFacebookLogin();
+    this.authService.doFacebookLogin()
+    .catch(err => {
+      console.error(err);
+      this.loggingWithFacebook = false;
+      this.loggingWithGoogle = false;
+    });
+    this.loggingWithGoogle = false;
+    this.loggingWithFacebook = true;
   }
 
 }
