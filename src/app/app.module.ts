@@ -20,6 +20,9 @@ import { AuthGuard } from './guards/auth/auth.guard';
 import { ShellGuard } from './guards/shell/shell.guard';
 import { HomeComponent } from './components/home/home.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
+import { NavBarComponent } from './components/nav-bar/nav-bar.component';
+import { SideBarComponent } from './components/side-bar/side-bar.component';
+import { FeatherIconsPipe } from './pipes/FeatherIcons/feather-icons.pipe';
 
 
 
@@ -29,7 +32,10 @@ import { SignUpComponent } from './components/sign-up/sign-up.component';
     ShellComponent,
     LoginComponent,
     HomeComponent,
-    SignUpComponent
+    SignUpComponent,
+    NavBarComponent,
+    SideBarComponent,
+    FeatherIconsPipe
   ],
   imports: [
     BrowserModule,

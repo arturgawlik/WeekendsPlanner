@@ -13,7 +13,6 @@ export class SignUpComponent implements OnInit {
   signUpForm: FormGroup;
 
   @Output('goBack') goBackEvent = new EventEmitter<any>();
-  @Output() registerSuccess = new EventEmitter<any>();
   @Output() registerError = new EventEmitter<any>();
   @Output() registerStart = new EventEmitter<any>();
 
@@ -52,9 +51,7 @@ export class SignUpComponent implements OnInit {
 
   signUp() {
     if (this.signUpForm.valid) {
-      this.authService.doRegister(this.signUpForm.value.signupEmail, this.signUpForm.value.password.signupPassword).then(res => {
-        this.registerSuccess.emit();
-      })
+      this.authService.doRegister(this.signUpForm.value.signupEmail, this.signUpForm.value.password.signupPassword)
       .catch(err => {
         console.error(err);
         this.registerError.emit();

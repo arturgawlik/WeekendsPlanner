@@ -33,7 +33,6 @@ export class LoginComponent implements OnInit {
   loggingWithGoogle = false;
   loggingWithEmailAndPass = false;
   loggingWithEmailAndPassError = false;
-  registerSuccessCom = false;
   registerErrorCom = false;
   registerProcessingCom = false;
 
@@ -69,7 +68,6 @@ export class LoginComponent implements OnInit {
     this.loggingWithGoogle = false;
     this.loggingWithEmailAndPass = false;
     this.loggingWithEmailAndPassError = false;
-    this.registerSuccessCom = false;
     this.registerErrorCom = false;
     this.registerProcessingCom = false;
   }
@@ -117,12 +115,6 @@ export class LoginComponent implements OnInit {
 
   reset() {
     this.setAllLoggingFlagsAsFalse();
-    this.showSignUp = false;
-  }
-
-  registerSuccess() {
-    this.setAllLoggingFlagsAsFalse();
-    this.registerSuccessCom = true;
     this.showSignUp = false;
   }
 

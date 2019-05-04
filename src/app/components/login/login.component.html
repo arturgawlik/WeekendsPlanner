@@ -24,11 +24,6 @@
           <div style="text-align: center;max-width:unset;"><strong>Oh snap!</strong> Wrong email or password.
           </div>
         </alert>
-        <alert *ngIf="registerSuccessCom" type="success">
-          <div style="text-align: center;max-width:unset;"><strong>Well done!</strong> You're successful sign up. Now
-            you can login to your new account!
-          </div>
-        </alert>
         <alert *ngIf="registerErrorCom" type="danger">
           <div style="text-align: center;max-width:unset;"><strong>Grrr!</strong> Something goes wrong while trying to
             sign up.
@@ -68,7 +63,7 @@
             New Account</button>
         </ng-container>
         <ng-container *ngIf="showSignUp">
-          <app-sign-up (goBack)="reset()" (registerSuccess)="registerSuccess()" (registerError)="registerError()" (registerStart)="registerStart()">
+          <app-sign-up (goBack)="reset()" (registerError)="registerError()" (registerStart)="registerStart()">
           </app-sign-up>
         </ng-container>
       </div>

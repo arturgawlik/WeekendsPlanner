@@ -1,5 +1,9 @@
-<p>
-  shell works!
-</p>
-<button (click)="logout()">logout</button>
-<router-outlet></router-outlet>
+<app-nav-bar></app-nav-bar>
+<div class="container-fluid">
+  <div class="row">
+    <app-side-bar></app-side-bar>
+    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+      <router-outlet></router-outlet>
+    </main>
+  </div>
+</div>
