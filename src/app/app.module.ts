@@ -23,6 +23,11 @@ import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { SideBarComponent } from './components/side-bar/side-bar.component';
 import { FeatherIconsPipe } from './pipes/FeatherIcons/feather-icons.pipe';
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
+import { reducers, initialState, effects } from './app.state';
+import { UpcomingTripsService } from './services/upcomingTrips/upcomingTrips.service';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 
 
@@ -45,12 +50,16 @@ import { FeatherIconsPipe } from './pipes/FeatherIcons/feather-icons.pipe';
     AppRoutingModule,
     AlertModule.forRoot(),
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    StoreModule.forRoot(reducers, { initialState }),
+    EffectsModule.forRoot(effects),
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production })
   ],
   providers: [
     AuthService,
     AuthGuard,
-    ShellGuard
+    ShellGuard,
+    UpcomingTripsService
   ],
   bootstrap: [AppComponent]
 })

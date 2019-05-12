@@ -1,4 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Store, select, State } from '@ngrx/store';
+import { AppState } from 'src/app/app.state';
+import { InitiateFetch, UpcomingTripsActions } from 'src/app/state/upcomingTrips';
+import { UpcomingTrip } from 'src/app/models/upcomingTrip/upcomingTrip.model';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-side-bar',
@@ -12,15 +18,17 @@ export class SideBarComponent implements OnInit {
     { name: 'Travels', icon: 'map', routerLink: '/travels' },
   ];
 
-  upcomingTrips = [
-    { name: 'Radom', icon: 'sun', degrees: 25 },
-    { name: 'Sosnowiec', icon: 'cloud-drizzle', degrees: 12 },
-    { name: 'Białystok', icon: 'cloud-snow', degrees: -4 },
-  ];
+  upcomingTrips$: Observable<UpcomingTrip[]>;
 
-  constructor() { }
+  constructor(private store: Store<AppState>) {
+  }
 
   ngOnInit() {
+    this.store.dispatch(new InitiateFetch());
+    this.upcomingTrips$ = this.store.pipe(
+      select('upcomingTrips'),
+      map((state: AppState) => state.upcomingTrips)
+    );
   }
 
   addTrip() {

@@ -14,11 +14,11 @@
         <span [innerHTML]="'plus-circle' | feather"></span>
       </a>
     </h6>
-    <ul *ngIf="upcomingTrips?.length" class="nav flex-column mb-2">
-      <li *ngFor="let upcomingTrip of upcomingTrips" class="nav-item">
+    <ul class="nav flex-column mb-2">
+      <li *ngFor="let upcomingTrip of upcomingTrips$ | async" class="nav-item">
         <a class="nav-link" style="cursor: pointer;">
           <span [innerHTML]="upcomingTrip.icon | feather"></span>
-          <small>{{upcomingTrip.degrees}} °C</small> {{upcomingTrip.name}}
+          <small>{{upcomingTrip.degrees}} °C</small> {{upcomingTrip.name}} <small>(29.32.2018)</small>
         </a>
       </li>
     </ul>
