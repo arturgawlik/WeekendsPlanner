@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import { Actions, Effect, ofType } from '@ngrx/effects';
 import { UpcomingTripsService } from 'src/app/services/upcomingTrips/upcomingTrips.service';
 import { UpcomingTripsActions, InitiateFetch, FetchComplete } from './upcomingTrips.actions';
-import { switchMap, map } from 'rxjs/operators';
+import { switchMap, map, catchError } from 'rxjs/operators';
+import { EMPTY, of } from 'rxjs';
 
 @Injectable()
 export class UpcomingTripsEffects {
@@ -17,7 +18,9 @@ export class UpcomingTripsEffects {
           return this.upcomingTripsService.fetch().pipe(
             map(res => {
               return new FetchComplete(res);
-            })
+            }),
+            // catchError(err => EMPTY)
+            catchError(() => of({ type: '[Movies API] Movies Loaded Error' }))
           );
         })
     );

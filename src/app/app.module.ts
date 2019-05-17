@@ -28,6 +28,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { reducers, initialState, effects } from './app.state';
 import { UpcomingTripsService } from './services/upcomingTrips/upcomingTrips.service';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { PlanNewComponent } from './components/plan-new/plan-new.component';
 
 
 
@@ -40,7 +41,8 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
     SignUpComponent,
     NavBarComponent,
     SideBarComponent,
-    FeatherIconsPipe
+    FeatherIconsPipe,
+    PlanNewComponent
   ],
   imports: [
     BrowserModule,

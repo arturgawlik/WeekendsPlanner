@@ -10,7 +10,7 @@
     </ul>
     <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
       <span>upcoming trips</span>
-      <a (click)="addTrip()" style="cursor: pointer;" class="d-flex align-items-center text-muted">
+      <a [routerLink]="'/plan-new'" style="cursor: pointer;" class="d-flex align-items-center text-muted">
         <span [innerHTML]="'plus-circle' | feather"></span>
       </a>
     </h6>
