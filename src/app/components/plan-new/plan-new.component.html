@@ -1,3 +1,30 @@
-<p>
-  plan-new works!
-</p>
+<div style="height: 100%">
+  <agm-map [latitude]="50.05118481052026" [longitude]="19.942988800422427"
+    (mapClick)="mapClicked($event, modalTemplate)">
+    <agm-marker *ngIf="lat && lng" [longitude]="lng" [latitude]="lat"></agm-marker>
+  </agm-map>
+</div>
+
+<ng-template #modalTemplate>
+  <div class="modal-header">
+    <h4 class="col-sm-12 modal-title text-center">Proposed places
+      <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </h4>
+  </div>
+  <div class="modal-body modal-lg">
+    <ng-container *ngIf="places?.length">
+      <div *ngFor="let place of places" class="card margin-top">
+        <div class="card-body">
+          This is some text within a card body.
+        </div>
+      </div>
+    </ng-container>
+    <ng-container *ngIf="!places?.length">
+      <div class="text-center">
+        No cool places found there... what a poor.
+      </div>
+    </ng-container>
+  </div>
+</ng-template>

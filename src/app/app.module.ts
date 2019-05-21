@@ -6,6 +6,8 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AlertModule } from 'ngx-bootstrap/alert';
+import { AgmCoreModule } from '@agm/core';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 import { environment } from '../environments/environment';
 
@@ -55,7 +57,9 @@ import { PlanNewComponent } from './components/plan-new/plan-new.component';
     ReactiveFormsModule,
     StoreModule.forRoot(reducers, { initialState }),
     EffectsModule.forRoot(effects),
-    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production })
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
+    AgmCoreModule.forRoot({ apiKey: environment.googleMapsAPIKey }),
+    ModalModule.forRoot()
   ],
   providers: [
     AuthService,

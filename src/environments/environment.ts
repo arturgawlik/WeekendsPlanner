@@ -11,7 +11,8 @@ export const environment = {
     projectId: "weekendsplanner-da696",
     storageBucket: "weekendsplanner-da696.appspot.com",
     messagingSenderId: "797596047216"
-  }
+  },
+  googleMapsAPIKey: 'AIzaSyDnnx85CZT0Dz7AUHDVWrQDQmOj-f70OFA'
 };
 
 /*
