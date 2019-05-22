@@ -6,7 +6,7 @@ export enum UpcomingTripsActions {
     FetchComplete = 'Fetch Complete UpcomingTrips',
 }
 
-export class InitiateFetch implements Action {
+export class FetchData implements Action {
     readonly type = UpcomingTripsActions.InitiateFetch;
 }
 
@@ -18,4 +18,4 @@ export class FetchComplete implements Action {
 
 }
 
-export type UpcomingTripAction = InitiateFetch | FetchComplete;
+export type UpcomingTripAction = FetchData | FetchComplete;

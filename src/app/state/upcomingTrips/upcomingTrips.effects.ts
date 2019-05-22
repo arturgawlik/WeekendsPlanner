@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Actions, Effect, ofType } from '@ngrx/effects';
 import { UpcomingTripsService } from 'src/app/services/upcomingTrips/upcomingTrips.service';
-import { UpcomingTripsActions, InitiateFetch, FetchComplete } from './upcomingTrips.actions';
+import { UpcomingTripsActions, FetchData, FetchComplete } from './upcomingTrips.actions';
 import { switchMap, map, catchError } from 'rxjs/operators';
 import { EMPTY, of } from 'rxjs';
 
@@ -14,7 +14,7 @@ export class UpcomingTripsEffects {
     @Effect()
     public initiateFetch$ = this.action$.pipe(
         ofType(UpcomingTripsActions.InitiateFetch),
-        switchMap((action: InitiateFetch) => {
+        switchMap((action: FetchData) => {
           return this.upcomingTripsService.fetch().pipe(
             map(res => {
               return new FetchComplete(res);

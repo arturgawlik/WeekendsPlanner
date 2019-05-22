@@ -1,5 +1,6 @@
 import { Component, OnInit, TemplateRef } from '@angular/core';
 import { BsModalService, BsModalRef, ModalOptions } from 'ngx-bootstrap/modal';
+import { CoolPlace } from 'src/app/models/coolplace/coolPlace.model';
 
 @Component({
   selector: 'app-plan-new',
@@ -8,7 +9,7 @@ import { BsModalService, BsModalRef, ModalOptions } from 'ngx-bootstrap/modal';
 })
 export class PlanNewComponent implements OnInit {
 
-  places: Array<number> = new Array();
+  coolPlaces: Array<CoolPlace> = new Array();
   lat: number;
   lng: number;
   modalRef: BsModalRef;
@@ -18,9 +19,16 @@ export class PlanNewComponent implements OnInit {
   }
 
   constructor(private modalService: BsModalService) {
-    // for (let index = 0; index < 1; index++) {
-    //   this.places.push(0);
-    // }
+    for (let index = 0; index < 1; index++) {
+      this.coolPlaces.push({
+        name: 'Bar pod kotem',
+        description: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.`,
+        showMoreAboutPlaceUrl: 'http://wikop.ru/',
+        weatherIcon: 'sun',
+        weatherDegrees: 28,
+        showMoreAboutWeatherUrl: 'http://wikop.ru/'
+      });
+    }
   }
 
   ngOnInit() {

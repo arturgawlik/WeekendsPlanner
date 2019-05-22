@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Store, select } from '@ngrx/store';
 import { AppState } from 'src/app/app.state';
-import { InitiateFetch, UpcomingTripsActions } from 'src/app/state/upcomingTrips';
+import { FetchData, UpcomingTripsActions } from 'src/app/state/upcomingTrips';
 import { UpcomingTrip } from 'src/app/models/upcomingTrip/upcomingTrip.model';
 import { map } from 'rxjs/operators';
 
@@ -29,11 +29,7 @@ export class SideBarComponent implements OnInit {
       select('upcomingTrips'),
       map((state: AppState) => state.upcomingTrips)
     );
-    this.store.dispatch(new InitiateFetch());
-  }
-
-  addTrip() {
-    console.log('add trip');
+    this.store.dispatch(new FetchData());
   }
 
 }
