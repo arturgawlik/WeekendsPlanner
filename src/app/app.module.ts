@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
@@ -31,6 +32,7 @@ import { reducers, initialState, effects } from './app.state';
 import { UpcomingTripsService } from './services/upcomingTrips/upcomingTrips.service';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { PlanNewComponent } from './components/plan-new/plan-new.component';
+import { GeoDataService } from './services/mediaWiki/geoData/geoData.service';
 
 
 
@@ -59,13 +61,15 @@ import { PlanNewComponent } from './components/plan-new/plan-new.component';
     EffectsModule.forRoot(effects),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
     AgmCoreModule.forRoot({ apiKey: environment.googleMapsAPIKey }),
-    ModalModule.forRoot()
+    ModalModule.forRoot(),
+    HttpClientModule
   ],
   providers: [
     AuthService,
     AuthGuard,
     ShellGuard,
-    UpcomingTripsService
+    UpcomingTripsService,
+    GeoDataService
   ],
   bootstrap: [AppComponent]
 })
