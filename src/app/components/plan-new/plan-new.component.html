@@ -14,13 +14,13 @@
     </h4>
   </div>
   <div class="modal-body modal-lg">
-    <ng-container *ngIf="coolPlaces?.length">
-      <div *ngFor="let place of coolPlaces; let odd = odd">
-        This is some text within a card body.
-        <hr *ngIf="odd" />
+    <ng-container *ngIf="(coolPlaces | async)?.length">
+      <div *ngFor="let place of coolPlaces | async">
+        {{place | json}}
+        <hr />
       </div>
     </ng-container>
-    <ng-container *ngIf="!coolPlaces?.length">
+    <ng-container *ngIf="!(coolPlaces | async)?.length">
       <div class="text-center">
         No cool places found there... what a poor.
       </div>

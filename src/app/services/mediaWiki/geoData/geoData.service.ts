@@ -11,7 +11,7 @@ export class GeoDataService {
     }
 
     fetchPlaces(lat: number, lon: number, radius: number = 10000): Observable<FetchPlacesResult[]> {
-        return this.httpClient.get(`https://en.wikipedia.org/w/api.php?action=query&list=geosearch&gsradius=${radius}&gscoord=${lat}|${lon}&format=json`)
+        return this.httpClient.jsonp(`https://en.wikipedia.org/w/api.php?action=query&list=geosearch&gsradius=${radius}&gscoord=${lat}|${lon}&format=json`, 'callback')
             .pipe(
                 map((res: any) => {
                     return (res.query.geosearch as any[])

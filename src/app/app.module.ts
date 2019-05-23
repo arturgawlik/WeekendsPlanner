@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
 
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
@@ -62,7 +62,8 @@ import { GeoDataService } from './services/mediaWiki/geoData/geoData.service';
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
     AgmCoreModule.forRoot({ apiKey: environment.googleMapsAPIKey }),
     ModalModule.forRoot(),
-    HttpClientModule
+    HttpClientModule,
+    HttpClientJsonpModule
   ],
   providers: [
     AuthService,
