@@ -1,5 +1,5 @@
 <div style="height: 100%">
-  <agm-map [latitude]="50.05118481052026" [longitude]="19.942988800422427"
+  <agm-map [latitude]="initLat" [longitude]="initLng" [zoom]="10"
     (mapClick)="mapClicked($event, modalTemplate)">
     <agm-marker *ngIf="lat && lng" [longitude]="lng" [latitude]="lat"></agm-marker>
   </agm-map>
@@ -15,9 +15,19 @@
   </div>
   <div class="modal-body modal-lg">
     <ng-container *ngIf="(coolPlaces | async)?.length">
-      <div *ngFor="let place of coolPlaces | async">
-        {{place | json}}
-        <hr />
+      <div class="container">
+        <div class="row" *ngFor="let place of coolPlaces | async">
+          
+          <div class="col-6">
+            <div class="col-12">
+              <h5>{{place.title}}</h5>
+            </div>
+          </div>
+          <div class="col-6">
+
+          </div>
+          <div class="hr"></div>
+        </div>
       </div>
     </ng-container>
     <ng-container *ngIf="!(coolPlaces | async)?.length">

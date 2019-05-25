@@ -13,6 +13,8 @@ import { FetchPlacesResult } from 'src/app/services/mediaWiki/geoData/models/fet
 export class PlanNewComponent implements OnInit {
 
   coolPlaces: Observable<Array<FetchPlacesResult>>
+  initLat: number = 50.05118481052026;
+  initLng: number = 19.942988800422427;
   lat: number;
   lng: number;
   modalRef: BsModalRef;
@@ -25,6 +27,14 @@ export class PlanNewComponent implements OnInit {
   }
 
   ngOnInit() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(s => {
+        this.initLat = s.coords.latitude;
+        this.initLng = s.coords.longitude;
+      }, err => {
+        console.log(err);
+      });
+    }
   }
 
   mapClicked(event: any, modalRef: TemplateRef<any>) {
