@@ -2,16 +2,15 @@ import { Injectable } from "@angular/core";
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
-import { FetchPlacesResult } from './models/fetchPlacesResult.model';
 
 @Injectable()
-export class GeoDataService {
+export class WeatherService {
 
     constructor(private httpClient: HttpClient) {
     }
 
-    fetchPlaces(lat: number, lon: number, radius: number = 10000): Observable<FetchPlacesResult[]> {
-        return this.httpClient.jsonp(`https://en.wikipedia.org/w/api.php?action=query&list=geosearch&gsradius=${radius}&gscoord=${lat}|${lon}&format=json&prop=description`, 'callback')
+    fetchWeater(lat: number, lon: number): Observable<FetchWeatherResult[]> {
+        return this.httpClient.get(`https://api.darksky.net/forecast/e29a270953c0c168364fc0e4f6f1b91f/${lat},${lon}`)
             .pipe(
                 tap(n => console.log(n)),
                 map((res: any) => {

@@ -4,6 +4,9 @@ import { CoolPlace } from 'src/app/models/coolplace/coolPlace.model';
 import { GeoDataService } from 'src/app/services/mediaWiki/geoData/geoData.service';
 import { Observable } from 'rxjs';
 import { FetchPlacesResult } from 'src/app/services/mediaWiki/geoData/models/fetchPlacesResult.model';
+import { WikiInfoService } from 'src/app/services/mediaWiki/info/wikiInfo.service';
+import { switchMap, flatMap, mergeMap, map } from 'rxjs/operators';
+import { WikiInfoResult } from 'src/app/services/mediaWiki/info/models/fetchInfoResult.model';
 
 @Component({
   selector: 'app-plan-new',
@@ -12,7 +15,7 @@ import { FetchPlacesResult } from 'src/app/services/mediaWiki/geoData/models/fet
 })
 export class PlanNewComponent implements OnInit {
 
-  coolPlaces: Observable<Array<FetchPlacesResult>>
+  coolPlaces: Observable<Array<WikiInfoResult>>
   initLat: number = 50.05118481052026;
   initLng: number = 19.942988800422427;
   lat: number;
@@ -23,7 +26,7 @@ export class PlanNewComponent implements OnInit {
     class: 'modal-lg'
   }
 
-  constructor(private modalService: BsModalService, private geoDataService: GeoDataService) {
+  constructor(private modalService: BsModalService, private geoDataService: GeoDataService, private wikiInfoService: WikiInfoService) {
   }
 
   ngOnInit() {
@@ -41,7 +44,10 @@ export class PlanNewComponent implements OnInit {
     this.lat = event.coords.lat;
     this.lng = event.coords.lng;
     this.modalRef = this.modalService.show(modalRef, this.modalConfig);
-    this.coolPlaces = this.geoDataService.fetchPlaces(event.coords.lat, event.coords.lng);
+    this.coolPlaces = this.geoDataService.fetchPlaces(event.coords.lat, event.coords.lng).pipe(
+      map(v => v.map( v2 => v2.pageId)),
+      mergeMap(val => this.wikiInfoService.fetchInfo(val))
+    );
   }
 
 }

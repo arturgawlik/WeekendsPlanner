@@ -33,6 +33,7 @@ import { UpcomingTripsService } from './services/upcomingTrips/upcomingTrips.ser
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { PlanNewComponent } from './components/plan-new/plan-new.component';
 import { GeoDataService } from './services/mediaWiki/geoData/geoData.service';
+import { WikiInfoService } from './services/mediaWiki/info/wikiInfo.service';
 
 
 
@@ -70,7 +71,8 @@ import { GeoDataService } from './services/mediaWiki/geoData/geoData.service';
     AuthGuard,
     ShellGuard,
     UpcomingTripsService,
-    GeoDataService
+    GeoDataService,
+    WikiInfoService
   ],
   bootstrap: [AppComponent]
 })
