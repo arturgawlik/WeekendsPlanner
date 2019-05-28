@@ -1,6 +1,5 @@
 <div style="height: 100%">
-  <agm-map [latitude]="initLat" [longitude]="initLng" [zoom]="10"
-    (mapClick)="mapClicked($event, modalTemplate)">
+  <agm-map [latitude]="initLat" [longitude]="initLng" [zoom]="10" (mapClick)="mapClicked($event, modalTemplate)">
     <agm-marker *ngIf="lat && lng" [longitude]="lng" [latitude]="lat"></agm-marker>
   </agm-map>
 </div>
@@ -13,22 +12,25 @@
       </button>
     </h4>
   </div>
-  <div class="modal-body modal-lg">
+  <div class="modal-body modal-lg" style="overflow-y: scroll; max-height: 600px;">
     <ng-container *ngIf="(coolPlaces | async)?.length">
       <div class="container">
-        <div class="row" *ngFor="let place of coolPlaces | async">
-          
-          <div class="col-6">
-            <div class="col-12">
-              <h5>{{place.title}}</h5>
-              <h5>{{place.description}}</h5>
-            </div>
-          </div>
-          <div class="col-6">
+        <ng-container *ngFor="let place of coolPlaces | async">
+          <div class="row" style="margin-top: 10px; min-height: 100px;">
 
+            <div class="col-6">
+              <div class="col-12">
+                <h5>{{place.title}}</h5>
+                <h6 class="text-muted">{{place.description}}</h6>
+                <a target="_blank" [attr.href]="place.fullurl">Show more...</a>
+              </div>
+            </div>
+            <div class="col-6">
+              <img *ngIf="place.imageUrl" [src]="place.imageUrl" class="rounded float-right" style="max-width: 100px; max-height: 100px">
+            </div>
+            <hr style="width: 100%">
           </div>
-          <div class="hr"></div>
-        </div>
+        </ng-container>
       </div>
     </ng-container>
     <ng-container *ngIf="!(coolPlaces | async)?.length">

@@ -24,8 +24,8 @@ export class WikiInfoService {
                             fullurl: tmpObj.fullurl,
                             lat: tmpObj.coordinates[0].lat,
                             lon: tmpObj.coordinates[0].lon,
-                            description: tmpObj.description//,
-                            // imageUrl: tmpObj.original.source
+                            description: tmpObj.description,
+                            imageUrl: tmpObj.original ? tmpObj.original.source : null
                         });
                     });
                     return tab;
