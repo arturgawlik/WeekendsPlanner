@@ -34,6 +34,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { PlanNewComponent } from './components/plan-new/plan-new.component';
 import { GeoDataService } from './services/mediaWiki/geoData/geoData.service';
 import { WikiInfoService } from './services/mediaWiki/info/wikiInfo.service';
+import { PlanTripComponent } from './components/plan-trip/plan-trip.component';
 
 
 
@@ -47,7 +48,8 @@ import { WikiInfoService } from './services/mediaWiki/info/wikiInfo.service';
     NavBarComponent,
     SideBarComponent,
     FeatherIconsPipe,
-    PlanNewComponent
+    PlanNewComponent,
+    PlanTripComponent
   ],
   imports: [
     BrowserModule,

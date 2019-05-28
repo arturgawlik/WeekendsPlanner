@@ -7,6 +7,7 @@ import { FetchPlacesResult } from 'src/app/services/mediaWiki/geoData/models/fet
 import { WikiInfoService } from 'src/app/services/mediaWiki/info/wikiInfo.service';
 import { switchMap, flatMap, mergeMap, map } from 'rxjs/operators';
 import { WikiInfoResult } from 'src/app/services/mediaWiki/info/models/fetchInfoResult.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-plan-new',
@@ -26,7 +27,7 @@ export class PlanNewComponent implements OnInit {
     class: 'modal-lg'
   }
 
-  constructor(private modalService: BsModalService, private geoDataService: GeoDataService, private wikiInfoService: WikiInfoService) {
+  constructor(private modalService: BsModalService, private geoDataService: GeoDataService, private wikiInfoService: WikiInfoService, private router: Router) {
   }
 
   ngOnInit() {
@@ -49,5 +50,10 @@ export class PlanNewComponent implements OnInit {
       mergeMap(val => this.wikiInfoService.fetchInfo(val))
     );
   }
+
+  planTrip(item: WikiInfoResult) {
+    this.router.navigate(['/plan-trip']);
+    this.modalRef.hide();
+  } 
 
 }

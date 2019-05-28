@@ -6,6 +6,7 @@ import { AuthGuard } from './guards/auth/auth.guard';
 import { ShellGuard } from './guards/shell/shell.guard';
 import { HomeComponent } from './components/home/home.component';
 import { PlanNewComponent } from './components/plan-new/plan-new.component';
+import { PlanTripComponent } from './components/plan-trip/plan-trip.component';
 
 const routes: Routes = [
   {
@@ -14,7 +15,8 @@ const routes: Routes = [
     children: [
       {path: '', redirectTo: 'home', pathMatch: 'full'},
       {path: 'home', component: HomeComponent},
-      {path: 'plan-new', component: PlanNewComponent}
+      {path: 'plan-new', component: PlanNewComponent},
+      {path: 'plan-trip', component: PlanTripComponent}
     ],
     canActivate: [ShellGuard]
   },
