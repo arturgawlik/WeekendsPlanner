@@ -45,7 +45,7 @@ export class PlanNewComponent implements OnInit {
     this.lng = event.coords.lng;
     this.modalRef = this.modalService.show(modalRef, this.modalConfig);
     this.coolPlaces = this.geoDataService.fetchPlaces(event.coords.lat, event.coords.lng).pipe(
-      map(v => v.map( v2 => v2.pageId)),
+      map(v => v.map(v2 => v2.pageId)),
       mergeMap(val => this.wikiInfoService.fetchInfo(val))
     );
   }

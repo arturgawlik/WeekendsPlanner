@@ -2,6 +2,7 @@ import { Injectable } from "@angular/core";
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
+import { FetchWeatherResult } from './models/fetchWeatherResult.model';
 
 @Injectable()
 export class WeatherService {
@@ -15,7 +16,7 @@ export class WeatherService {
                 tap(n => console.log(n)),
                 map((res: any) => {
                     return (res.query.geosearch as any[])
-                        .map(val => new FetchPlacesResult(val.pageid, val.title, val.lat, val.lon));
+                        .map(val => new FetchWeatherResult()); // TODO
                 })
             );
     }
