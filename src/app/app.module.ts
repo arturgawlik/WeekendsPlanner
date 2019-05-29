@@ -35,6 +35,7 @@ import { PlanNewComponent } from './components/plan-new/plan-new.component';
 import { GeoDataService } from './services/mediaWiki/geoData/geoData.service';
 import { WikiInfoService } from './services/mediaWiki/info/wikiInfo.service';
 import { PlanTripComponent } from './components/plan-trip/plan-trip.component';
+import { BsDatepickerModule } from 'ngx-bootstrap';
 
 
 
@@ -66,7 +67,8 @@ import { PlanTripComponent } from './components/plan-trip/plan-trip.component';
     AgmCoreModule.forRoot({ apiKey: environment.googleMapsAPIKey }),
     ModalModule.forRoot(),
     HttpClientModule,
-    HttpClientJsonpModule
+    HttpClientJsonpModule,
+    BsDatepickerModule.forRoot()
   ],
   providers: [
     AuthService,

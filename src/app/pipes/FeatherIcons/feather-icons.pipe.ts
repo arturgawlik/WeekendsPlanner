@@ -10,7 +10,7 @@ export class FeatherIconsPipe implements PipeTransform {
   constructor(private sanitizer: DomSanitizer) {
   }
 
-  transform(icon: string, size: number = 24, color: string = 'inherit') {
+  transform(icon: string, size: number = 30, color: string = 'inherit') {
     return this.sanitizer.bypassSecurityTrustHtml(icons[icon].toSvg({
       width: size,
       height: size,
