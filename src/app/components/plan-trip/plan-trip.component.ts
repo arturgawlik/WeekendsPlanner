@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
+import { WikiInfoResult } from 'src/app/services/mediaWiki/info/models/fetchInfoResult.model';
 
 @Component({
   selector: 'app-plan-trip',
@@ -7,7 +9,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PlanTripComponent implements OnInit {
 
-  constructor() { }
+  constructor(private activatedRoute: ActivatedRoute) {
+    console.log(activatedRoute.snapshot.params as WikiInfoResult);
+  }
 
   ngOnInit() {
   }

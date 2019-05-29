@@ -52,7 +52,7 @@ export class PlanNewComponent implements OnInit {
   }
 
   planTrip(item: WikiInfoResult) {
-    this.router.navigate(['/plan-trip']);
+    this.router.navigate(['/plan-trip', item]);
     this.modalRef.hide();
   } 
 
