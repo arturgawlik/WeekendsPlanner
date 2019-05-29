@@ -1,3 +1,24 @@
-<p>
-  plan-trip works!
-</p>
+<div class="card shadow-lg" style="margin-top: 30px;">
+  <!-- <div class="card-header">
+    
+  </div> -->
+  <div class="card-body">
+    <h5 style="text-align: center">Plan a new adventure</h5>
+    <hr>
+    <form [formGroup]="newTripform">
+      <div class="form-group">
+        <label for="inputName">Adventure Name</label>
+        <input type="text" class="form-control" id="inputName" placeholder="Enter adventure name" formControlName="name">
+      </div>
+      <div class="form-group">
+        <label for="inputNotes">Notes</label>
+        <textarea class="form-control" id="inputNotes" rows="3" placeholder="Enter some notes" formControlName="notes"></textarea>
+      </div>
+    </form>
+    <hr>
+    <button class="btn btn-info btn-block">Save</button>
+  </div>
+  <!-- <div class="card-footer text-muted">
+    <button class="btn btn-info btn-block">Save</button>
+  </div> -->
+</div>
