@@ -36,6 +36,7 @@ import { GeoDataService } from './services/mediaWiki/geoData/geoData.service';
 import { WikiInfoService } from './services/mediaWiki/info/wikiInfo.service';
 import { PlanTripComponent } from './components/plan-trip/plan-trip.component';
 import { BsDatepickerModule } from 'ngx-bootstrap';
+import { WeatherService } from './services/weather/weather.servie';
 
 
 
@@ -76,7 +77,8 @@ import { BsDatepickerModule } from 'ngx-bootstrap';
     ShellGuard,
     UpcomingTripsService,
     GeoDataService,
-    WikiInfoService
+    WikiInfoService,
+    WeatherService
   ],
   bootstrap: [AppComponent]
 })

@@ -28,8 +28,9 @@
             (bsValueChange)="onDateChage($event)" formControlName="date" />
         </div>
         <div class="col-3" style="display: flex;">
-            <i style="height: 60px;margin-top: 20px;" class="fas fa-4x fa-sun"></i>
-            <h2 style="height: 40px;margin-top: 29px;margin-left: 20px;">24 °C </h2>
+            <!-- <i style="height: 60px;margin-top: 20px;" class="fas  fa-cloud-rain"></i> -->
+            <i class="fas fa-cloud-rain"></i>
+            <h5 style="height: 40px;margin-top: 26px;margin-left: 20px;">Min: {{weather?.temperatureLow}} °C <br /> Max: {{weather?.temperatureHigh}} °C</h5>
         </div>
       </div>
 
