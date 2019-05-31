@@ -35,14 +35,26 @@ export class LocalForecastComponent implements OnInit {
 
 weatherIcon(icon) {
     switch (icon) {
-      case 'partly-cloudy-day':
-        return 'wi wi-day-cloudy'
-      case 'clear-day':
-        return 'wi wi-day-sunny'
-      case 'partly-cloudy-night':
-        return 'wi wi-night-partly-cloudy'
-      default:
-        return `wi wi-day-sunny`
+      			case 'clear-night':
+      				return 'wi wi-night-clear';
+            case 'partly-cloudy-day':
+              return 'wi wi-day-cloudy'
+      			case 'cloudy':
+      				return 'wi wi-cloudy';
+      			case 'fog':
+      				return 'wi wi-fog';
+      			case 'rain':
+      				return 'wi wi-rain';
+      			case 'wind':
+      				return 'wi wi-day-windy';
+      			case 'snow':
+      				return 'wi wi-snow';
+            case 'clear-day':
+              return 'wi wi-day-sunny'
+            case 'partly-cloudy-night':
+              return 'wi wi-night-partly-cloudy'
+            default:
+            return `wi wi-day-sunny`
     }
   }
 
