@@ -28,7 +28,9 @@ export class PlanNewComponent implements OnInit {
     class: 'modal-lg'
   }
 
-  constructor(private modalService: BsModalService, private geoDataService: GeoDataService, private wikiInfoService: WikiInfoService, private router: Router) {
+  constructor(private modalService: BsModalService, private geoDataService: GeoDataService,
+   private wikiInfoService: WikiInfoService, private router: Router
+   ) {
   }
 
   ngOnInit() {
