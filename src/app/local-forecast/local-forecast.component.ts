@@ -23,8 +23,8 @@ export class LocalForecastComponent implements OnInit {
        });
      } else {
        /// default coords
-      this.lat = 40.73;
-      this.lng = -73.93;
+      this.lat = 50.05118481052026;
+      this.lng = 19.942988800422427;
      }
     }
 

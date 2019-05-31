@@ -1,12 +1,12 @@
-<h1>
+<h3>
   <i class="wi wi-barometer"></i> Your Local Weather Forecast
-</h1>
+</h3>
 
 <p>Current Position: {{ lat }} / {{ lng }} </p>
 
 <button (click)="getForecast()">Get Forecast</button>
 
-<h1>Seven Day Forecast</h1>
+<h3>Seven Day Forecast</h3>
 
 <div *ngIf="forecast | async as f" class="columns">
   <div *ngFor="let day of f.daily.data" class="column">
