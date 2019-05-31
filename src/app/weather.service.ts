@@ -6,8 +6,6 @@ import { Observable } from 'rxjs';
 @Injectable()
 export class WeatherService {
 
-  readonly ROOT_URL = '`https://api.darksky.net/forecast/e29a270953c0c168364fc0e4f6f1b91f/${lat},${lon}`';
-
   constructor(private http: HttpClient) { }
 
   currentForecast(lat: number, lng: number): Observable<any> {
