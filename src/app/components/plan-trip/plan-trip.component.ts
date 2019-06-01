@@ -20,7 +20,6 @@ export class PlanTripComponent implements OnInit {
   fetchedWeathers: FetchWeatherResult[];
   weather: FetchWeatherResult;
   init = true;
-  weatherIcon = 'fa-sun';
   uId: string;
 
   // flags
@@ -30,7 +29,6 @@ export class PlanTripComponent implements OnInit {
 
   constructor(private activatedRoute: ActivatedRoute, private fb: FormBuilder, private weatherService: WeatherService, private db: AngularFirestore, private auth: AngularFireAuth) {
     this.incomePlace = activatedRoute.snapshot.params as WikiInfoResult;
-    // this.buildForm();
     auth.user.subscribe(u => {
       this.uId = u.uid;
       this.buildForm();
@@ -115,26 +113,5 @@ export class PlanTripComponent implements OnInit {
     this.savingError = false;
     this.savingSuccess = false;
   }
-
-
-
-  // public setIcon() {
-  //   const tmpIcon = this.weather.type;
-  //   if (tmpIcon === 'clear-day' || tmpIcon === 'clear-night') {
-  //     this.weatherIcon = 'fa-sun';
-  //   }
-  //   if (tmpIcon === 'rain') {
-  //     this.weatherIcon = 'fa-cloud-rain';
-  //   }
-  //   if (tmpIcon === 'snow' || tmpIcon === 'sleet') {
-  //     this.weatherIcon = 'fa-snowflake';
-  //   }
-  //   if (tmpIcon === 'cloudy') {
-  //     this.weatherIcon = 'fa-cloud';
-  //   }
-  //   if (tmpIcon === 'partly-cloudy-day' || tmpIcon === 'partly-cloudy-night') {
-  //     this.weatherIcon = 'fa-cloud-sun';
-  //   }
-  // }
 
 }

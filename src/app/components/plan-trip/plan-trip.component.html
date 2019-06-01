@@ -13,9 +13,9 @@
       </div>
     </alert>
     <alert *ngIf="savingSuccess" type="success">
-        <div style="text-align: center;max-width:unset;"><strong>Well done!</strong> Trip was saved successfully!
-        </div>
-      </alert>
+      <div style="text-align: center;max-width:unset;"><strong>Well done!</strong> Trip was saved successfully!
+      </div>
+    </alert>
     <hr>
     <form [formGroup]="newTripform">
       <div class="form-group col-12">
@@ -37,14 +37,16 @@
         </div>
       </div>
       <div style="display: flex">
-        <div class="form-group col-9">
+        <div class="form-group col-7">
           <label for="inputDate">Date</label>
           <input type="text" id="inputDate" class="form-control mb-3" placeholder="Pick a date" bsDatepicker
             (bsValueChange)="onDateChage($event)" formControlName="date" />
         </div>
-        <div class="col-3">
-          <h5 style="height: 40px;margin-top: 35px;margin-left: 20px;">Min: {{weather?.temperatureLow}} °C Max:
+        <div class="col-5">
+          <h5 *ngIf="weather" style="height: 40px;margin-top: 35px;margin-left: 20px;text-align: center;">Min: {{weather?.temperatureLow}}
+            °C Max:
             {{weather?.temperatureHigh}} °C</h5>
+          <h6 *ngIf="!weather" style="height: 50px;margin-top: 35px;margin-left: 20px;text-align: center;">No weather forecast available for that day...</h6>
         </div>
       </div>
 
