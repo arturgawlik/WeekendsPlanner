@@ -50,7 +50,10 @@ export class PlanTripComponent implements OnInit {
       place: [this.incomePlace.title],
       date: [this.getTommorowDate(), Validators.required],
       lat: [this.incomePlace.lat],
-      lng: [this.incomePlace.lon]
+      lng: [this.incomePlace.lon],
+      weatherType: [],
+      minTemp: [],
+      maxTemp: []
     });
   }
 
@@ -70,6 +73,11 @@ export class PlanTripComponent implements OnInit {
       this.weather = this.getCurrentWeather(event);
     }
     this.init = false;
+    if (this.weather) {
+      this.minTemp.setValue(this.weather.temperatureLow);
+      this.maxTemp.setValue(this.weather.temperatureHigh);
+      this.weatherType.setValue(this.weather.type);
+    }
   }
 
   public getCurrentWeather(date: Date) {
@@ -85,8 +93,13 @@ export class PlanTripComponent implements OnInit {
         uId: this.newTripform.value.uId,
         name: this.newTripform.value.name,
         place: this.newTripform.value.place,
-        date: (this.newTripform.value.date as Date).getDate(),
-        notes: this.newTripform.value.notes
+        date: (this.newTripform.value.date as Date).getTime(),
+        notes: this.newTripform.value.notes,
+        lat: this.newTripform.value.lat,
+        lng: this.newTripform.value.lng,
+        weatherType: this.newTripform.value.weatherType,
+        minTemp: this.newTripform.value.minTemp,
+        maxTemp: this.newTripform.value.maxTemp
       }).then(val => {
         this.restartFlags();
         this.savingSuccess = true;
@@ -106,6 +119,18 @@ export class PlanTripComponent implements OnInit {
 
   get inputName(): AbstractControl {
     return this.newTripform.get('name');
+  }
+
+  get minTemp(): AbstractControl {
+    return this.newTripform.get('minTemp');
+  }
+
+  get maxTemp(): AbstractControl {
+    return this.newTripform.get('maxTemp');
+  }
+
+  get weatherType(): AbstractControl {
+    return this.newTripform.get('weatherType');
   }
 
   restartFlags() {

@@ -17,8 +17,8 @@
     <ul class="nav flex-column mb-2">
       <li *ngFor="let upcomingTrip of upcomingTrips$ | async" class="nav-item">
         <a class="nav-link" style="cursor: pointer;">
-          <span [innerHTML]="upcomingTrip.icon | feather"></span>
-          <small>{{upcomingTrip.degrees}} °C</small> {{upcomingTrip.name}} <small>(29.32.2018)</small>
+          <!-- <span [innerHTML]="upcomingTrip.icon | feather"></span> -->
+          <small>{{upcomingTrip.minTemp}}/{{upcomingTrip.maxTemp}} °C</small> {{upcomingTrip.name}} <small>({{upcomingTrip.date | date}})</small>
         </a>
       </li>
     </ul>

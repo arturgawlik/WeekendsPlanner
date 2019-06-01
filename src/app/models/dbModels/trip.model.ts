@@ -5,7 +5,9 @@ export class Trip {
         public name?: string,
         public place?: string,
         public date?: number,
-        public notes?: string
+        public notes?: string,
+        public minTemp?: string,
+        public maxTemp?: string
     ) {
     }
 

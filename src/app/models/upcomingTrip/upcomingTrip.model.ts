@@ -1,5 +1,17 @@
+// export class UpcomingTrip {
+//     name: string;
+//     degrees: number;
+//     icon: string;
+//}
 export class UpcomingTrip {
-    name: string;
-    degrees: number;
-    icon: string;
+    
+    constructor(
+        public name?: string,
+        public minTemp?: number,
+        public maxTemp?: number,
+        public weatherType?: string,
+        public date?: number
+    ) {
+    }
+
 }

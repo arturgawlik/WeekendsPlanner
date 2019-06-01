@@ -14,17 +14,12 @@ export class UpcomingTripsService {
 
     fetch(): Observable<UpcomingTrip[]> {
         //TODO: fetch data from firebase
-        return of([
-            { name: 'Radom', icon: 'sun', degrees: 25 },
-            { name: 'Sosnowiec', icon: 'cloud-drizzle', degrees: 12 },
-            { name: 'Białystok', icon: 'cloud-snow', degrees: -4 },
-        ]);
-        // return this.db.collection('trips').get(null).pipe(
-        //     map((v: QuerySnapshot<Trip>) => {
-        //         const items = v.docs;
-        //         return items.
-        //     });
-        // );
+        // return of([
+        //     { name: 'Radom', icon: 'sun', degrees: 25 },
+        //     { name: 'Sosnowiec', icon: 'cloud-drizzle', degrees: 12 },
+        //     { name: 'Białystok', icon: 'cloud-snow', degrees: -4 },
+        // ]);
+        return this.db.collection<UpcomingTrip>('trips').valueChanges();
     }
 
 }
