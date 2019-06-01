@@ -16,7 +16,7 @@ export class SideBarComponent implements OnInit {
 
   sideBarOptions = [
     { name: 'Dashboard', icon: 'home', routerLink: '/home' },
-    { name: 'Travels', icon: 'map', routerLink: '/travels' },
+    { name: 'Travels', icon: 'map', routerLink: '/travels-list' },
   ];
 
   upcomingTrips$: Observable<UpcomingTrip[]>;

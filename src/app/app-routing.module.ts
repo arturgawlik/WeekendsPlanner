@@ -8,6 +8,7 @@ import { HomeComponent } from './components/home/home.component';
 import { PlanNewComponent } from './components/plan-new/plan-new.component';
 import { PlanTripComponent } from './components/plan-trip/plan-trip.component';
 import { LocalForecastComponent } from './local-forecast/local-forecast.component';
+import { TravelsListComponent } from './components/travels-list/travels-list.component';
 
 const routes: Routes = [
   {
@@ -17,7 +18,8 @@ const routes: Routes = [
       {path: '', redirectTo: 'home', pathMatch: 'full'},
       {path: 'home', component: LocalForecastComponent},
       {path: 'plan-new', component: PlanNewComponent},
-      {path: 'plan-trip', component: PlanTripComponent}
+      {path: 'plan-trip', component: PlanTripComponent},
+      {path: 'travels-list', component: TravelsListComponent}
     ],
     canActivate: [ShellGuard]
   },
