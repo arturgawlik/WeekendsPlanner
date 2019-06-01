@@ -9,6 +9,9 @@ import { auth } from "firebase/app";
 export class AuthService {
 
   constructor(private afAuth: AngularFireAuth, private router: Router) {
+
+    afAuth.user.subscribe(u => u.uid)
+
   }
 
   doFacebookLogin() {

@@ -8,8 +8,11 @@
     <form [formGroup]="newTripform">
       <div class="form-group col-12">
         <label for="inputName">Adventure Name</label>
-        <input type="text" class="form-control" id="inputName" placeholder="Enter adventure name"
-          formControlName="name">
+        <input type="text" class="form-control" id="inputName" placeholder="Enter adventure name" formControlName="name"
+          [class.is-invalid]="inputName.invalid && (inputName.touched || inputName.dirty)">
+        <div *ngIf="inputName.errors?.required && (inputName.touched || inputName.dirty)" class="invalid-feedback">
+          Adventure Name!
+        </div>
       </div>
       <div class="form-group col-12">
         <label for="inputName">Place</label>
@@ -28,7 +31,8 @@
             (bsValueChange)="onDateChage($event)" formControlName="date" />
         </div>
         <div class="col-3">
-            <h5 style="height: 40px;margin-top: 35px;margin-left: 20px;">Min: {{weather?.temperatureLow}} °C Max: {{weather?.temperatureHigh}} °C</h5>
+          <h5 style="height: 40px;margin-top: 35px;margin-left: 20px;">Min: {{weather?.temperatureLow}} °C Max:
+            {{weather?.temperatureHigh}} °C</h5>
         </div>
       </div>
 
@@ -39,7 +43,7 @@
       </div>
     </form>
     <hr>
-    <button class="btn btn-info btn-block">Save</button>
+    <button class="btn btn-info btn-block" (click)="saveForm()">Save</button>
   </div>
   <!-- <div class="card-footer text-muted">
     <button class="btn btn-info btn-block">Save</button>
