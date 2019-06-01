@@ -38,6 +38,7 @@ import { PlanTripComponent } from './components/plan-trip/plan-trip.component';
 import { BsDatepickerModule } from 'ngx-bootstrap';
 import { LocalForecastComponent } from './local-forecast/local-forecast.component';
 import { WeatherService } from './services/weather/weather.service';
+import { TravelsListComponent } from './components/travels-list/travels-list.component';
 
 
 
@@ -53,7 +54,8 @@ import { WeatherService } from './services/weather/weather.service';
     FeatherIconsPipe,
     PlanNewComponent,
     PlanTripComponent,
-    LocalForecastComponent
+    LocalForecastComponent,
+    TravelsListComponent
   ],
   imports: [
     BrowserModule,
