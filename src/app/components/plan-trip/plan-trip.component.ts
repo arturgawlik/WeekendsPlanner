@@ -23,8 +23,10 @@ export class PlanTripComponent implements OnInit {
   weatherIcon = 'fa-sun';
   uId: string;
 
-
   // flags
+  savingInProggress = false;
+  savingError = false;
+  savingSuccess = false;
 
   constructor(private activatedRoute: ActivatedRoute, private fb: FormBuilder, private weatherService: WeatherService, private db: AngularFirestore, private auth: AngularFireAuth) {
     this.incomePlace = activatedRoute.snapshot.params as WikiInfoResult;
@@ -88,12 +90,16 @@ export class PlanTripComponent implements OnInit {
         date: (this.newTripform.value.date as Date).getDate(),
         notes: this.newTripform.value.notes
       }).then(val => {
-        console.log('success!');
+        this.restartFlags();
+        this.savingSuccess = true;
         console.log(val);
       }).catch(err => {
-        console.log('error!');
+        this.restartFlags();
+        this.savingError = true;
         console.log(err);
       });
+      this.restartFlags();
+      this.savingInProggress = true;
     } else {
       this.inputName.markAsTouched();
     }
@@ -102,6 +108,12 @@ export class PlanTripComponent implements OnInit {
 
   get inputName(): AbstractControl {
     return this.newTripform.get('name');
+  }
+
+  restartFlags() {
+    this.savingInProggress = false;
+    this.savingError = false;
+    this.savingSuccess = false;
   }
 
 

@@ -4,6 +4,18 @@
   </div> -->
   <div class="card-body">
     <h5 style="text-align: center">Plan a new adventure</h5>
+    <alert *ngIf="savingInProggress" type="info">
+      <div style="text-align: center;max-width:unset;"><strong>Heads up!</strong> Saving...
+      </div>
+    </alert>
+    <alert *ngIf="savingError" type="danger">
+      <div style="text-align: center;max-width:unset;"><strong>Oh snap!</strong> Something goes wrong!
+      </div>
+    </alert>
+    <alert *ngIf="savingSuccess" type="success">
+        <div style="text-align: center;max-width:unset;"><strong>Well done!</strong> Trip was saved successfully!
+        </div>
+      </alert>
     <hr>
     <form [formGroup]="newTripform">
       <div class="form-group col-12">
