@@ -37,7 +37,7 @@ import { WikiInfoService } from './services/mediaWiki/info/wikiInfo.service';
 import { PlanTripComponent } from './components/plan-trip/plan-trip.component';
 import { BsDatepickerModule } from 'ngx-bootstrap';
 import { LocalForecastComponent } from './local-forecast/local-forecast.component';
-import { WeatherService } from './weather.service';
+import { WeatherService } from './services/weather/weather.service';
 
 
 

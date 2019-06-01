@@ -14,8 +14,8 @@ const routes: Routes = [
     path: '',
     component: ShellComponent, 
     children: [
-      {path: '', redirectTo: 'local-forecast', pathMatch: 'full'},
-      {path: 'local-forecast', component: LocalForecastComponent},
+      {path: '', redirectTo: 'home', pathMatch: 'full'},
+      {path: 'home', component: LocalForecastComponent},
       {path: 'plan-new', component: PlanNewComponent},
       {path: 'plan-trip', component: PlanTripComponent}
     ],

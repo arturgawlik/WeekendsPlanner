@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { WikiInfoResult } from 'src/app/services/mediaWiki/info/models/fetchInfoResult.model';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { WeatherService } from 'src/app/services/weather/weather.servie';
 import { FetchWeatherResult } from 'src/app/services/weather/models/fetchWeatherResult.model';
+import { WeatherService } from 'src/app/services/weather/weather.service';
 
 @Component({
   selector: 'app-plan-trip',

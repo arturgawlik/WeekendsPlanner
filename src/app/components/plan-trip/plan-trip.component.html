@@ -27,10 +27,8 @@
           <input type="text" id="inputDate" class="form-control mb-3" placeholder="Pick a date" bsDatepicker
             (bsValueChange)="onDateChage($event)" formControlName="date" />
         </div>
-        <div class="col-3" style="display: flex;">
-            <!-- <i style="height: 60px;margin-top: 20px;" class="fas  fa-cloud-rain"></i> -->
-            <i class="fas fa-cloud-rain"></i>
-            <h5 style="height: 40px;margin-top: 26px;margin-left: 20px;">Min: {{weather?.temperatureLow}} °C <br /> Max: {{weather?.temperatureHigh}} °C</h5>
+        <div class="col-3">
+            <h5 style="height: 40px;margin-top: 35px;margin-left: 20px;">Min: {{weather?.temperatureLow}} °C Max: {{weather?.temperatureHigh}} °C</h5>
         </div>
       </div>
 

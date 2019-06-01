@@ -8,7 +8,6 @@ import { WikiInfoService } from 'src/app/services/mediaWiki/info/wikiInfo.servic
 import { switchMap, flatMap, mergeMap, map } from 'rxjs/operators';
 import { WikiInfoResult } from 'src/app/services/mediaWiki/info/models/fetchInfoResult.model';
 import { Router } from '@angular/router';
-import { WeatherService } from 'src/app/services/weather/weather.servie';
 
 @Component({
   selector: 'app-plan-new',
