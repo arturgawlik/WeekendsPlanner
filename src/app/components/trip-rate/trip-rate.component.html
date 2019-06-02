@@ -15,7 +15,7 @@
           <td>{{travel.name}}</td>
           <td>{{travel.date | date}}</td>
           <td (click)="starChanged(travel.id, rate)">
-            <rating [(ngModel)]="rate" [max]="5"></rating>
+            <rating [(ngModel)]="travel.rate" [max]="5"></rating>
           </td>
         </tr>
     </table>

@@ -11,7 +11,8 @@ export class Trip {
         public maxTemp?: string,
         public lat?: number,
         public lng?: number,
-        public weatherType?: string
+        public weatherType?: string,
+        public rate?: number
     ) {
     }
 
