@@ -1,6 +1,12 @@
 # WeekendsPlanner
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.6.
+Projekt został stworzony na potrzeby zaliczenia przedmiotu PROGRAMOWANIE APLIKACJI WEBOWYCH SPA.
+
+Linki:
+
+Prototyp - 
+
+UML - 
 
 ## Development server
 
