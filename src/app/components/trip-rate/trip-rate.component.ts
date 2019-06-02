@@ -14,8 +14,6 @@ export class TripRateComponent implements OnInit {
 
   previousTravels$: Observable<Trip[]>;
 
-  rate = 3;
-
   constructor(private travelsService: TravelsService, private db: AngularFirestore) {
     const tempCurrentTime = new Date().getTime();
     this.previousTravels$ = this.travelsService.fetch()

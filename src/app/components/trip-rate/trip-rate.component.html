@@ -14,7 +14,7 @@
         <tr *ngFor="let travel of previousTravels$ | async">
           <td>{{travel.name}}</td>
           <td>{{travel.date | date}}</td>
-          <td (click)="starChanged(travel.id, rate)">
+          <td (click)="starChanged(travel.id, travel.rate)">
             <rating [(ngModel)]="travel.rate" [max]="5"></rating>
           </td>
         </tr>
