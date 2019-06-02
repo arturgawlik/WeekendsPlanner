@@ -73,18 +73,20 @@ export class PlanTripComponent implements OnInit {
       this.weather = this.getCurrentWeather(event);
     }
     this.init = false;
-    if (this.weather) {
-      this.minTemp.setValue(this.weather.temperatureLow);
-      this.maxTemp.setValue(this.weather.temperatureHigh);
-      this.weatherType.setValue(this.weather.type);
-    }
   }
 
   public getCurrentWeather(date: Date) {
     date.setHours(0, 0, 0, 0);
-    return this.fetchedWeathers.find(el => {
+    const res = this.fetchedWeathers.find(el => {
       return el.date.getDate() == date.getDate();
     });
+    if (res) {
+      this.minTemp.setValue(res.temperatureLow);
+      this.maxTemp.setValue(res.temperatureHigh);
+      this.weatherType.setValue(res.type);
+    }
+
+    return res;
   }
 
   public saveForm() {
