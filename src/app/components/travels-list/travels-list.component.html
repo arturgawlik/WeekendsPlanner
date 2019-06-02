@@ -19,7 +19,7 @@
           <td>{{travel.date | date}}</td>
           <td>{{travel.minTemp}} / {{travel.maxTemp}} °C</td>
           <td>
-            <button type="button" class="btn btn-primary btn-sm">Show more</button>
+            <button type="button" class="btn btn-primary btn-sm" (click)="goToDetails(travel)">Show more</button>
             <button type="button" class="btn btn-danger btn-sm">Remove</button>
           </td>
         </tr>

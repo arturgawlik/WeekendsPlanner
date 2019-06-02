@@ -53,7 +53,8 @@ export class PlanTripComponent implements OnInit {
       lng: [this.incomePlace.lon],
       weatherType: [],
       minTemp: [],
-      maxTemp: []
+      maxTemp: [],
+      fullUrl: [this.incomePlace.fullurl]
     });
   }
 
@@ -105,7 +106,8 @@ export class PlanTripComponent implements OnInit {
         lng: this.newTripform.value.lng,
         weatherType: this.newTripform.value.weatherType,
         minTemp: this.newTripform.value.minTemp,
-        maxTemp: this.newTripform.value.maxTemp
+        maxTemp: this.newTripform.value.maxTemp,
+        fullUrl: this.newTripform.value.fullUrl
       }).then(val => {
         this.restartFlags();
         this.savingSuccess = true;

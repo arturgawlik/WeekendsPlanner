@@ -42,6 +42,7 @@ import { TravelsListComponent } from './components/travels-list/travels-list.com
 import { TravelsService } from './services/travels/travels.service';
 import { TripRateComponent } from './components/trip-rate/trip-rate.component';
 import { RatingModule } from 'ngx-bootstrap/rating';
+import { DetailsComponent } from './components/details/details.component';
 
 
 
@@ -59,7 +60,8 @@ import { RatingModule } from 'ngx-bootstrap/rating';
     PlanTripComponent,
     LocalForecastComponent,
     TravelsListComponent,
-    TripRateComponent
+    TripRateComponent,
+    DetailsComponent
   ],
   imports: [
     BrowserModule,

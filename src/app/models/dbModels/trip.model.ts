@@ -12,7 +12,8 @@ export class Trip {
         public lat?: number,
         public lng?: number,
         public weatherType?: string,
-        public rate?: number
+        public rate?: number,
+        public fullUrl?: string
     ) {
     }
 

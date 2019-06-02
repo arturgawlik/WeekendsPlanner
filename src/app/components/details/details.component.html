@@ -1,0 +1,46 @@
+<div class="card shadow-lg" style="margin-top: 20px;">
+  <!-- <div class="card-header">
+    
+  </div> -->
+  <div class="card-body">
+    <h5 style="text-align: center">Adventure details</h5>
+    <hr>
+    <form [formGroup]="newTripform">
+      <div class="form-group col-12">
+        <label for="inputName">Adventure Name</label>
+        <input type="text" class="form-control" id="inputName" placeholder="Enter adventure name" formControlName="name" readonly>
+      </div>
+      <div class="form-group col-12">
+        <label for="inputName">Place</label>
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" id="inputPlace" formControlName="place" readonly>
+          <div class="input-group-append">
+            <button (click)="openWiki()" class="btn btn-outline-secondary" type="button" style="margin: 0 !important"><i
+                class="fas fa-long-arrow-alt-right"></i></button>
+          </div>
+        </div>
+      </div>
+      <div style="display: flex">
+        <div class="form-group col-7">
+          <label for="inputDate">Date</label>
+          <input type="text" id="inputDate" class="form-control mb-3" placeholder="Pick a date"
+            formControlName="date" readonly/>
+        </div>
+        <div class="col-5">
+          <h5 *ngIf="minTemp.value && maxTemp.value" style="height: 40px;margin-top: 35px;margin-left: 20px;text-align: center;">Min: {{minTemp?.value}}
+            °C Max:
+            {{maxTemp?.value}} °C</h5>
+          <h6 *ngIf="!minTemp.value && !maxTemp.value" style="height: 50px;margin-top: 35px;margin-left: 20px;text-align: center;">No weather forecast available for that day...</h6>
+        </div>
+      </div>
+
+      <div class="form-group col-12">
+        <label for="inputNotes">Notes</label>
+        <textarea class="form-control" id="inputNotes" rows="3" placeholder="Enter some notes"
+          formControlName="notes" readonly></textarea>
+      </div>
+    </form>
+    <hr>
+    <!-- <button class="btn btn-info btn-block" (click)="saveForm()">Save</button> -->
+  </div>
+</div>
