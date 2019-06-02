@@ -16,14 +16,9 @@ export class TravelsService {
         return this.auth.user.pipe(
             switchMap(u => {
                 return this.db.collection<Trip>('trips')
-                    .valueChanges().pipe(
-                        map(v => {
-                            return v.sort((a, b) => {
-                                return a.date - b.date;
-                            }).filter(v => v.uId === u.uid && v.date > new Date().getTime())
-                        })
-                    )
+                    .valueChanges();
             })
+        )
     }
 
 }

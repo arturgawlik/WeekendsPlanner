@@ -1,9 +1,54 @@
-<div class="card shadow-lg" style="margin-top: 20px;">
-    <!-- <div class="card-header">
-      
-    </div> -->
-    <div class="card-body">
-      <h5 style="text-align: center">Your adventures</h5>
-      
-    </div>
+<div class="card shadow-lg" style="margin-top: 20px; height: 735px;overflow-y: scroll">
+  <div class="card-body">
+    <h5>Your upcoming adventures</h5>
+    <hr>
+    <table class="table table-borderless">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Name</th>
+          <th scope="col">Date</th>
+          <th scope="col">Forecast</th>
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let travel of upcomingTravels$ | async; let index = index">
+          <th scope="row">{{index+1}}</th>
+          <td>{{travel.name}}</td>
+          <td>{{travel.date | date}}</td>
+          <td>{{travel.minTemp}} / {{travel.maxTemp}} °C</td>
+          <td>
+              <button type="button" class="btn btn-primary btn-sm">Edit</button>
+              <button type="button" class="btn btn-danger btn-sm">Remove</button>
+          </td>
+        </tr>
+    </table>
   </div>
+</div>
+
+<div class="card shadow-lg" style="margin-top: 20px; margin-bottom: 20px;height: 735px;">
+  <div class="card-body">
+    <h5>Your previous adventures</h5>
+    <hr>
+    <table class="table table-borderless">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Name</th>
+          <th scope="col">Date</th>
+          <th scope="col">Show more</th>
+          <th scope="col">Rating</th>
+        </tr>
+      </thead>
+      <tbody style="overflow-y: scroll">
+        <tr *ngFor="let travel of previousTravels$ | async; let index = index">
+          <th scope="row">{{index+1}}</th>
+          <td>{{travel.name}}</td>
+          <td>{{travel.date | date}}</td>
+          <td><a target="_blank" href="google.pl" style="margin-left: 30px;"><i class="fas fa-long-arrow-alt-right"></i></a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
