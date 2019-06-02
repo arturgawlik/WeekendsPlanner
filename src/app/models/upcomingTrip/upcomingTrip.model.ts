@@ -10,7 +10,8 @@ export class UpcomingTrip {
         public minTemp?: number,
         public maxTemp?: number,
         public weatherType?: string,
-        public date?: number
+        public date?: number,
+        public uId?: string
     ) {
     }
 

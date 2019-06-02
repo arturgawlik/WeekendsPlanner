@@ -84,6 +84,10 @@ export class PlanTripComponent implements OnInit {
       this.minTemp.setValue(res.temperatureLow);
       this.maxTemp.setValue(res.temperatureHigh);
       this.weatherType.setValue(res.type);
+    } else {
+      this.minTemp.setValue(null);
+      this.maxTemp.setValue(null);
+      this.weatherType.setValue(null);
     }
 
     return res;
