@@ -15,8 +15,12 @@ export class TravelsService {
     fetch(): Observable<Trip[]> {
         return this.auth.user.pipe(
             switchMap(u => {
-                return this.db.collection<Trip>('trips')
-                    .valueChanges();
+                return this.db.collection('trips').snapshotChanges()
+                    .pipe(
+                        map((items: any[]) =>
+                            items.map(c => ({ id: c.payload.doc.id, ...c.payload.doc.data() }))
+                        )
+                    );
             })
         )
     }

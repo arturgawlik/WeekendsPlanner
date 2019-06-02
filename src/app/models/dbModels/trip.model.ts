@@ -1,6 +1,7 @@
 export class Trip {
 
     constructor(
+        public id?: string,
         public uId?: string,
         public name?: string,
         public place?: string,

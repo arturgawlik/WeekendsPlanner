@@ -40,6 +40,8 @@ import { LocalForecastComponent } from './local-forecast/local-forecast.componen
 import { WeatherService } from './services/weather/weather.service';
 import { TravelsListComponent } from './components/travels-list/travels-list.component';
 import { TravelsService } from './services/travels/travels.service';
+import { TripRateComponent } from './components/trip-rate/trip-rate.component';
+import { RatingModule } from 'ngx-bootstrap/rating';
 
 
 
@@ -56,7 +58,8 @@ import { TravelsService } from './services/travels/travels.service';
     PlanNewComponent,
     PlanTripComponent,
     LocalForecastComponent,
-    TravelsListComponent
+    TravelsListComponent,
+    TripRateComponent
   ],
   imports: [
     BrowserModule,
@@ -74,7 +77,8 @@ import { TravelsService } from './services/travels/travels.service';
     ModalModule.forRoot(),
     HttpClientModule,
     HttpClientJsonpModule,
-    BsDatepickerModule.forRoot()
+    BsDatepickerModule.forRoot(),
+    RatingModule.forRoot()
   ],
   providers: [
     AuthService,

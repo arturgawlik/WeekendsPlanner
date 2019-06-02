@@ -1,0 +1,23 @@
+<div class="card shadow-lg" style="margin-top: 20px; height: 735px;overflow-y: scroll">
+  <div class="card-body">
+    <h5>Rate your previous trips</h5>
+    <hr>
+    <table class="table table-borderless">
+      <thead>
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Date</th>
+          <th scope="col">Rate</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let travel of previousTravels$ | async">
+          <td>{{travel.name}}</td>
+          <td>{{travel.date | date}}</td>
+          <td (click)="starChanged(travel.id, rate)">
+            <rating [(ngModel)]="rate" [max]="5"></rating>
+          </td>
+        </tr>
+    </table>
+  </div>
+</div>
