@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { Trip } from 'src/app/models/dbModels/trip.model';
 import { map, tap } from 'rxjs/operators';
 import { Router } from '@angular/router';
+import { AngularFirestore } from '@angular/fire/firestore';
 
 @Component({
   selector: 'app-travels-list',
@@ -15,7 +16,7 @@ export class TravelsListComponent implements OnInit {
   upcomingTravels$: Observable<Trip[]>;
   previousTravels$: Observable<Trip[]>;
 
-  constructor(private travelsService: TravelsService, private router: Router) {
+  constructor(private travelsService: TravelsService, private router: Router, private db: AngularFirestore) {
     const tempCurrentTime = new Date().getTime();
     this.previousTravels$ = this.travelsService.fetch()
       .pipe(
@@ -32,6 +33,20 @@ export class TravelsListComponent implements OnInit {
 
   goToDetails(item: Trip) {
     this.router.navigate(['/details', item]);
+  }
+
+  removeTrip(id: string) {
+    console.log('remove ' + id);
+    this.db
+       .collection("trips")
+       .doc(id)
+       .delete()
+       .then(s => {
+         console.log(s);
+       })
+       .catch(err => {
+         console.log(err);
+       });
   }
 
 }
