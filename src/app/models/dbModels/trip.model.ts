@@ -7,7 +7,10 @@ export class Trip {
         public date?: number,
         public notes?: string,
         public minTemp?: string,
-        public maxTemp?: string
+        public maxTemp?: string,
+        public lat?: number,
+        public lng?: number,
+        public weatherType?: string
     ) {
     }
 

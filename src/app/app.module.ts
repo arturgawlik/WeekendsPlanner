@@ -39,6 +39,7 @@ import { BsDatepickerModule } from 'ngx-bootstrap';
 import { LocalForecastComponent } from './local-forecast/local-forecast.component';
 import { WeatherService } from './services/weather/weather.service';
 import { TravelsListComponent } from './components/travels-list/travels-list.component';
+import { TravelsService } from './services/travels/travels.service';
 
 
 
@@ -82,7 +83,8 @@ import { TravelsListComponent } from './components/travels-list/travels-list.com
     UpcomingTripsService,
     GeoDataService,
     WikiInfoService,
-    WeatherService
+    WeatherService,
+    TravelsService
   ],
   bootstrap: [AppComponent]
 })
