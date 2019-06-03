@@ -4,9 +4,9 @@ Projekt został stworzony na potrzeby zaliczenia przedmiotu PROGRAMOWANIE APLIKA
 
 Linki:
 
-Prototyp - 
+Prototyp - https://app.moqups.com/BR3dPK5XoX/view/page/ad64222d5?ui=0
 
-UML - 
+UML - dodany na moodle
 
 ## Development server
 
