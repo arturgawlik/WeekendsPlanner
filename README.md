@@ -3,7 +3,7 @@
 Projekt został stworzony na potrzeby zaliczenia przedmiotu PROGRAMOWANIE APLIKACJI WEBOWYCH SPA.
 
 
-Aplikacja pozwalająca zaplanować wycieczkę dając możliwość użytkownikowi wybrania miejsca na mapie, a następnie wyświetla "ciekawe" miejsca w okolicy korzystająć Wikipeida Web Api. Aplikacja daje możliwość wyświetlenia prognozy pogody na dany dzień przy pomocy DarkSky Api.
+Aplikacja pozwalająca zaplanować wycieczkę dając możliwość użytkownikowi wybrania miejsca na mapie, a następnie wyświetla "ciekawe" miejsca w okolicy korzystając z Wikipeida Web Api. Aplikacja daje możliwość wyświetlenia prognozy pogody na dany dzień przy pomocy DarkSky Api.
 
 Linki:
 
